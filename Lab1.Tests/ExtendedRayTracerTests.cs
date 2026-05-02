@@ -81,7 +81,7 @@ namespace Lab1.Tests
             CollectionAssert.Contains(objects, sphere);
 
             Renderer renderer = new Renderer(_scene);
-            string ppmImage = renderer.RenderToPPM(2, 2);
+            string ppmImage = renderer.RenderToPpm(2, 2);
 
             StringAssert.StartsWith("P3", ppmImage);
             StringAssert.Contains("255", ppmImage);
@@ -117,11 +117,11 @@ namespace Lab1.Tests
         [Test]
         public void Render_HighResolution_SkippedOnDebug()
         {
-            Assume.That(!System.Diagnostics.Debugger.IsAttached, "Пропускаємо важкий тест під час дебагу.");
+            Assume.That(!System.Diagnostics.Debugger.IsAttached, "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.");
 
             _scene.AddObject(new Sphere(new Vec3(0, 0, -5), 1.0, _redMaterial));
             Renderer renderer = new Renderer(_scene);
-            string result = renderer.RenderToPPM(100, 100);
+            string result = renderer.RenderToPpm(100, 100);
 
             Assert.That(result, Is.Not.Empty);
         }
@@ -133,8 +133,8 @@ namespace Lab1.Tests
 
             string environment = TestContext.Parameters.Get("RenderEnvironment", "Unknown");
 
-            Assert.That(maxBounces, Is.EqualTo(3), "Параметр MaxRayBounces не зчитався з конфігу.");
-            Assert.That(environment, Is.EqualTo("Test"), "Параметр RenderEnvironment не зчитався з конфігу.");
+            Assert.That(maxBounces, Is.EqualTo(3), "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ MaxRayBounces пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ.");
+            Assert.That(environment, Is.EqualTo("Test"), "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ RenderEnvironment пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ.");
         }
     }
 }

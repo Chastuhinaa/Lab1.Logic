@@ -1,0 +1,81 @@
+# EditorConfig - enables SonarAnalyzer rules as warnings
+root = true
+
+[*.cs]
+# S109 - Magic numbers should not be used
+dotnet_diagnostic.S109.severity = warning
+
+# S1104 - Fields should not have public accessibility
+dotnet_diagnostic.S1104.severity = warning
+
+# S1118 - Utility classes should not have public constructors
+dotnet_diagnostic.S1118.severity = warning
+
+# S1128 - Unused "using" should be removed
+dotnet_diagnostic.S1128.severity = warning
+
+# S1186 - Methods should not be empty
+dotnet_diagnostic.S1186.severity = warning
+
+# S1450 - Private fields only used as local variables should become local variables
+dotnet_diagnostic.S1450.severity = warning
+
+# S2344 - Enumeration type names should not have "Flags" or "Enum" suffixes
+dotnet_diagnostic.S2344.severity = warning
+
+# S2583 - Conditionally executed code should be reachable
+dotnet_diagnostic.S2583.severity = warning
+
+# S2589 - Boolean expressions should not be gratuitous
+dotnet_diagnostic.S2589.severity = warning
+
+# S3218 - Inner class members should not shadow outer class "static" or type members
+dotnet_diagnostic.S3218.severity = warning
+
+# S3237 - "value" contextual keyword should be used
+dotnet_diagnostic.S3237.severity = warning
+
+# S3376 - Attribute, Exception, and EventArgs types should be used correctly
+dotnet_diagnostic.S3376.severity = warning
+
+# S3400 - Methods should not return constants
+dotnet_diagnostic.S3400.severity = warning
+
+# S3776 - Cognitive Complexity of methods should not be too high
+dotnet_diagnostic.S3776.severity = warning
+
+# S4487 - Unread "private" fields should be removed
+dotnet_diagnostic.S4487.severity = warning
+
+# S6605 - "Collection.Contains" method should be used instead of "Enumerable.Contains"
+dotnet_diagnostic.S6605.severity = warning
+
+# S1066 - Collapsible "if" statements should be merged
+dotnet_diagnostic.S1066.severity = warning
+
+# S1481 - Unused local variables should be removed
+dotnet_diagnostic.S1481.severity = warning
+
+# S2325 - Methods and properties that don't access instance data should be static
+dotnet_diagnostic.S2325.severity = warning
+
+# S3925 - "ISerializable" should be implemented correctly
+dotnet_diagnostic.S3925.severity = warning
+
+# S1144 - Unused private types or members should be removed
+dotnet_diagnostic.S1144.severity = warning
+
+# S4040 - Strings should be normalized to uppercase
+dotnet_diagnostic.S4040.severity = warning
+
+# S101 - Types should be named in PascalCase
+dotnet_diagnostic.S101.severity = warning
+
+# S100 - Methods and properties should be named in camelCase
+dotnet_diagnostic.S100.severity = warning
+
+# S2094 - Classes should not be empty
+dotnet_diagnostic.S2094.severity = warning
+
+# S1075 - Hardcoded URIs should not be absolute
+dotnet_diagnostic.S1075.severity = warning

@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pandoc --track-changes=all \"C:\\\\Users\\\\ЮЛЯ\\\\Downloads\\\\Звіт_Лаба_СтатичнийАналіз_Частухіна.docx\" -o -)",
+      "Read(//c/Users/ЮЛЯ/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/2ba2ea72-ee00-4740-b02c-d5a390b492e8/8ca94d47-0ddd-4e32-a497-8061f2423ad7/skills/docx/**)",
+      "Bash(python scripts/office/unpack.py \"C:\\\\Users\\\\ЮЛЯ\\\\Downloads\\\\Звіт_Лаба_СтатичнийАналіз_Частухіна.docx\" /tmp/zvit_unpacked/)",
+      "Bash(python scripts/office/unpack.py \"C:/Users/ЮЛЯ/Downloads/Звіт_Лаба_СтатичнийАналіз_Частухіна.docx\" /tmp/zvit_unpacked/)",
+      "Bash(cp \"/c/Users/ЮЛЯ/Downloads/Звіт_Лаба_СтатичнийАналіз_Частухіна.docx\" /tmp/zvit.docx)",
+      "Bash(cd /tmp)",
+      "Bash(python3 -c ' *)",
+      "Bash(dotnet script *)",
+      "Bash(dotnet build *)",
+      "Bash(dotnet test *)"
+    ]
+  }
+}

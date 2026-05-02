@@ -7,6 +7,15 @@ namespace Lab1.Logic
     public class MathCalculationException : Exception { public MathCalculationException(string msg) : base(msg) { } }
     public class InvalidSceneSetupException : Exception { public InvalidSceneSetupException(string msg) : base(msg) { } }
 
+    internal static class RayTracerConstants
+    {
+        public const double VectorNormalizeEpsilon = 1e-8;
+        public const double IntersectBiasEpsilon = 0.001;
+        public const double PlaneParallelEpsilon = 1e-6;
+        public const int MaxBounceDepth = 3;
+        public const int MaxColorValue = 255;
+    }
+
     public struct Vec3
     {
         public double X { get; }
@@ -30,7 +39,7 @@ namespace Lab1.Logic
         public Vec3 Normalize()
         {
             double len = Length();
-            if (len < 1e-8) throw new MathCalculationException("Неможливо нормалізувати нульовий вектор.");
+            if (len < RayTracerConstants.VectorNormalizeEpsilon) throw new MathCalculationException("Неможливо нормалізувати нульовий вектор.");
             return this * (1.0 / len);
         }
     }
@@ -95,7 +104,7 @@ namespace Lab1.Logic
             if (discriminant > 0)
             {
                 double t = (-b - Math.Sqrt(discriminant)) / (2.0 * a);
-                if (t > 0.001)
+                if (t > RayTracerConstants.IntersectBiasEpsilon)
                 {
                     Vec3 point = ray.Origin + ray.Direction * t;
                     Vec3 normal = (point - Center).Normalize();
@@ -119,10 +128,10 @@ namespace Lab1.Logic
         public override HitRecord Intersect(Ray ray)
         {
             double denom = Normal.Dot(ray.Direction);
-            if (Math.Abs(denom) > 1e-6)
+            if (Math.Abs(denom) > RayTracerConstants.PlaneParallelEpsilon)
             {
                 double t = (Distance - Normal.Dot(ray.Origin)) / denom;
-                if (t > 0.001)
+                if (t > RayTracerConstants.IntersectBiasEpsilon)
                 {
                     Vec3 point = ray.Origin + ray.Direction * t;
                     return new HitRecord(t, point, Normal, Material);
@@ -164,7 +173,7 @@ namespace Lab1.Logic
 
         public Vec3 TraceRay(Ray ray, int bounceDepth = 0)
         {
-            if (bounceDepth > 3) return new Vec3(0, 0, 0);
+            if (bounceDepth > RayTracerConstants.MaxBounceDepth) return new Vec3(0, 0, 0);
 
             HitRecord closestHit = new HitRecord();
             double closestT = double.MaxValue;
@@ -192,7 +201,7 @@ namespace Lab1.Logic
             return finalColor;
         }
 
-        public string RenderToPPM(int width, int height)
+        public string RenderToPpm(int width, int height)
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("P3");
